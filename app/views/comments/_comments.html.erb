@@ -1,0 +1,16 @@
+<% if !@comments.empty? %>
+	<h3> Comments: </h3>
+<% end %>
+
+<% @comments.sort_by{|x| x.votes}.reverse.each do |comment| %>
+  <article id="comment_template" class="border">
+    <h5 class="vote_count"><%= comment.votes %></h5>
+    <%= link_to recipe_comment_upvote_path(@recipe, comment), method: 'put', remote: true, class: "upvote_button" do %>
+      <i class="fa fa-arrow-circle-o-up"></i>
+    <% end %>
+    <%= link_to recipe_comment_downvote_path(@recipe,comment), method: 'put', remote: true, class: "downvote_button" do %>
+      <i class="fa fa-arrow-circle-o-down"></i>
+    <% end %>
+    <p> <%= comment.body %> </p>
+  </article>
+<% end %>

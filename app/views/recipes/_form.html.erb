@@ -1,0 +1,5 @@
+<%= form_for(@recipe) do |r| %>
+  Title: <%= r.text_field :title %><br/>
+  Content: <%= r.text_area :content %><br/>
+  <%= r.submit %>
+<% end %>

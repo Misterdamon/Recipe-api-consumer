@@ -1,0 +1,5 @@
+<%= form_for(@recipe, url: search_path, method: 'post') do |r| %>
+  Search: <%= r.text_field :content %><br/>
+  
+  <%= r.submit %>
+<% end %>

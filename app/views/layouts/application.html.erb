@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DbcOverflow</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+<header class="full-width dark-grey">
+  <h2 class="align-middle">Recipe Overflow</h2>
+  <h4 class="absolute-right align-middle"> <%= link_to "New Recipe", new_recipe_path %> </h4>
+	  <ul class="absolute-right" style="margin-right:150px;list-style-type:none;"> 
+	  	<% if !session[:id] %>
+		  	<li> <%= link_to "Create Account", new_user_path %> </li>
+		  	<li> <%= link_to "Sign in ", signin_path %> </li>
+		  	<li> <%= link_to "Random Recipe list", random_path%> </li>
+		  	<li> <%= link_to "Search", new_search_path%> </li>
+		  <% else %>
+		  	<li> <%= link_to "Logout", logout_path, method: 'post' %> </li>
+		  <% end %>
+	 	</ul>
+	 	
+</header>
+<%= yield %>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<h2 class="ta-center">All Recipes</h2>
+<div class="width70 center ta-center">
+  <% @recipes.each do |recipe| %>
+    <article id = <%="#{recipe.id}"%> >
+      <h3><%= link_to recipe.title, recipe_path(recipe) %></h3>
+
+      <div class="mt-45">
+        <%= link_to recipe_upvote_path(recipe), method: 'put', remote: true, class: "upvote_button" do %>
+          <i class="fa fa-arrow-circle-o-up"></i>
+        <% end %>
+        <%= link_to recipe_downvote_path(recipe), method: 'put', remote: true, class: "downvote_button" do %>
+          <i class="fa fa-arrow-circle-o-down"></i>
+        <% end %>
+        <p class="vote_count"><%= recipe.votes %> </p>
+      </div>
+      <ul class="style-none">
+        <li> <%= link_to "Edit", edit_recipe_path(recipe) %></li>
+        <li> <%= link_to "Delete", recipe_path(recipe), method: :delete %></li>
+      </ul>
+    </article>
+  <% end %>
+</div>

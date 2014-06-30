@@ -1,0 +1,23 @@
+<div class="width70 center ta-center">
+  <article>
+    <h3 class="ta-left"><%= @recipe.title %></h3>
+    <img src=<%="#{@recipe.image_url}" %>>
+    <hr/>
+    <div class="mt-45 pull-left">
+      <%= link_to recipe_upvote_path(@recipe), remote: true, method: 'put', class: "upvote_button" do %>
+        <i class="fa fa-arrow-circle-o-up"></i>
+      <% end %>
+      <%= link_to recipe_downvote_path(@recipe), remote: true, method: 'put', class: "downvote_button" do %>
+        <i class="fa fa-arrow-circle-o-down"></i>
+      <% end %>
+      <p class="vote_count"><%= @recipe.votes %> </p>
+    </div>
+    <div id="comment_feed" class="inline-block width70">
+      <p class="inline-block ta-left"><%= @recipe.content %></p>
+    </div>
+    <div class="comment_feed">
+      <%=  render 'comments/comments' %>
+    </div>
+    <%= render 'comments/form'%>
+  </article>
+</div>

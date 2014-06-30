@@ -1,0 +1,4 @@
+<%= form_for([@recipe, @comment], remote: true,html: { class: "comment_button"}) do |r| %>
+  Comment Body: <%= r.text_field :body %><br/>
+  <%= r.submit %>
+<% end %>
