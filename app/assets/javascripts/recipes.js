@@ -1,9 +1,7 @@
-$(document).ready(function(){
-  bindEvents();
-  })
 
 
-function bindEvents(){
+
+function bindRecipeCommentEvents(){
   $("article").on('ajax:success',".upvote_button",function(event, body, status){
     $(this).parent().find(".vote_count").text(body.votes)
   })

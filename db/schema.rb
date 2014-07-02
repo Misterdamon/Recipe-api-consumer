@@ -31,11 +31,11 @@ ActiveRecord::Schema.define(:version => 20140628205243) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "username"
+    t.string   "username",      :default => "Guest"
     t.string   "password_hash"
     t.string   "api_key",       :default => ""
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
   end
 
 end
